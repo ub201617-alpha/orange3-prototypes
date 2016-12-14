@@ -52,6 +52,7 @@ def join_neighbors(distances):
 
     new_matrix = calculate_new_distances(distances, old_indexes, min_x, min_y)
     print("Final matrix: \n", new_matrix)
+    return new_matrix
 
 
 distances = [[0, 5, 9, 9, 8],
@@ -59,6 +60,7 @@ distances = [[0, 5, 9, 9, 8],
              [9, 10, 0, 8, 7],
              [9,	10,	8, 0, 3],
              [8, 9, 7, 3, 0]]
-join_neighbors(distances)
+while len(distances) > 2:
+    distances = join_neighbors(distances)
 
 
