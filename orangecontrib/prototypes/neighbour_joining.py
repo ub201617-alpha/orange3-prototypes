@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 
 
 def q_value(matrix, i, j):
@@ -6,12 +6,12 @@ def q_value(matrix, i, j):
 
 
 def minimum_element_index(matrix):
-    return numpy.unravel_index(matrix.argmin(), matrix.shape)
+    return np.unravel_index(matrix.argmin(), matrix.shape)
 
 
 def calculate_q(distances):
     n = len(distances)
-    q = numpy.zeros(shape=(n, n))
+    q = np.zeros(shape=(n, n))
     for i in range(0, n):
         for j in range(0, n):
             if i != j:
@@ -21,7 +21,7 @@ def calculate_q(distances):
 
 def calculate_new_distances(distances, old_indexes, min_x, min_y):
     n = len(distances)
-    result = numpy.zeros(shape=(n - 1, n - 1))
+    result = np.zeros(shape=(n - 1, n - 1))
     for i in range(0, len(old_indexes)):
         for j in range(0, len(old_indexes)):
             if i != j:
@@ -62,5 +62,3 @@ distances = [[0, 5, 9, 9, 8],
              [8, 9, 7, 3, 0]]
 while len(distances) > 2:
     distances = join_neighbors(distances)
-
-
